@@ -1,6 +1,5 @@
-Mesh.Algorithm = 6;
-lc = 1;
-ls = 1;
+lc = lc;
+ls = lc;
 Point(1) = {0.0,0.0,0.0,lc};
 Point(2) = {5,0.0,0.0,ls};
 Point(3) = {0,5,0.0,ls};
@@ -40,3 +39,6 @@ Surface Loop(29) = {28,26,16,14,20,24,22,18};
 Volume(30) = {29};
 Physical Volume(2) = 30;
 Coherence;
+Mesh.CharacteristicLengthFromPoints = 1;
+Mesh.Algorithm = 6;
+

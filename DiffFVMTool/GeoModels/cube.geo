@@ -1,4 +1,4 @@
-lc = 0.5;
+lc = lc;
 Point(1) = {0.0,0.0,0.0,lc};
 Point(2) = {10,0.0,0.0,lc};
 Point(3) = {10,10,0.0,lc};
@@ -13,6 +13,7 @@ tmp[] = Extrude {0,0.0,10} {
   Surface{6};
 };
 Physical Volume(1) = tmp[1];
+Mesh.CharacteristicLengthFromPoints = 1;
 
 
 

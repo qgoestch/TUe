@@ -1,7 +1,7 @@
-lc = 1;
 ls = 0.4*lc;
 r = 5; // Radius of the sphere
-Br = r/2; //Cubic bulk dimension
+Br = r/2; // Cubic bulk dimension
+Nc = 2*Br/lc; // Number of layers in the bulk edges
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 //                   Structured internal cube 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
@@ -16,10 +16,10 @@ Line(4) = {4, 1};
 Line Loop(1) = {1, 2, 3, 4};
 Plane Surface(1) = {1};
 Extrude {-2*Br, 0, 0} {
-  Surface{1};Layers{2*Br/lc-2};
+  Surface{1};Layers{Nc-1};
  }
  //
-Transfinite Line {1, 2, 3, 4, 20, 11, 12, 16, 8, 9, 6, 7} = 2*Br/lc-1 Using Progression 1;
+Transfinite Line {1, 2, 3, 4, 20, 11, 12, 16, 8, 9, 6, 7} =Nc Using Progression 1;
 Transfinite Surface {13};
 Transfinite Surface {1};
 Transfinite Surface {25};
@@ -73,3 +73,4 @@ Surface Loop(30) = {28, 31, 33, 29, 34, 35, 32, 30};
 Volume(2) = {29,30};
 Physical Volume(1) = {2,1};
 Coherence Mesh;
+Mesh.CharacteristicLengthFromPoints = 1;
